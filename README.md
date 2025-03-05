@@ -104,9 +104,67 @@ Utilizando **TypeScript**, **NodeJS**, **Docker** e **PostgreSQL**, o sistema bu
 	 "message": "Mineração finalizada com sucesso."
     }
   ```
+---
+## Estrutura de pastas
+
+```
+  bmfBovespa/
+├── data/                      # Diretório para armazenamento de dados extraídos ou processados
+├── db/                        # Configuração e scripts do banco de dados PostgreSQL
+├── src/                       # Código-fonte principal do projeto
+│   ├── bmfbovespa/            # Módulo principal de mineração dos ativos da BMF&Bovespa
+│   ├── db/                    # Conexão e operações relacionadas ao banco de dados
+│   ├── routes/                # Definição das rotas da API
+│   ├── server/                # Configuração do servidor Node.js (Express)
+│   ├── parsejson/             # Processamento e transformação de dados JSON extraídos
+│   ├── utilcalendar/          # Funções utilitárias para manipulação de datas e feriados
+│   ├── miner/                 # Lógica de mineração dos dados da BMF&Bovespa
+├── test/                      # Testes unitários e de integração do projeto
+├── .gitignore                 # Arquivo que especifica arquivos e diretórios a serem ignorados pelo Git
+├── README.md                  # Documentação do projeto
+├── docker-compose.yml          # Configuração do Docker Compose para serviços do projeto
+├── index.ts                   # Arquivo principal de inicialização do projeto
+├── package-lock.json           # Registro exato das versões das dependências
+├── package.json                # Metadados do projeto e lista de dependências
+└── tsconfig.json               # Configuração do compilador TypeScript
 
 
-  ## Tabela de Ativos - BMFBovespa
+```
+
+---
+
+## Executando o Projeto
+
+1️⃣ Instale as dependências:
+```
+   npm install -y
+```
+
+2️⃣ Suba o container Docker e inicie o Banco de Dados:
+```
+   docker compose up -d
+```
+Obs.: (O parâmetro `-d` executa os containers em segundo plano)
+
+3️⃣ Criar as tabelas no Banco de Dados:
+```
+    psql -U SEU_USUARIO -d SEU_BANCO -f bmfbovespa/db/schema.sql
+```
+
+
+4️⃣ Inicie o servidor:
+```
+   npm run dev                
+```
+(O servidor será iniciado em modo de desenvolvimento)
+
+✅ Agora o projeto estará rodando e pronto para ser utilizado! 🚀
+
+
+
+---
+
+## Tabela de Ativos - BMFBovespa
 
 | ID  | Código  | Descrição |
 |-----|---------|------------------------------------------------|
