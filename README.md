@@ -37,6 +37,36 @@ Utilizando **TypeScript**, **NodeJS**, **Docker** e **PostgreSQL**, o sistema bu
   
   ```
   ---
+- **GET /api/list**  
+  Retorna a lista de ativos disponíveis.  
+
+  **Req**  
+  ```sh
+  curl -X GET http://localhost:3000/api/list
+  ```
+  **Res**
+  ```
+  [
+   {
+     "id": 1,
+     "cod": "ABEVO",
+     "description": "Contrato Futuro de ABEV3"
+   },
+   {
+     "id": 2,
+     "cod": "AFS",
+     "description": "Rande da África do Sul (em USD)"
+   },
+   {
+      "id": 3,
+     "cod": "ARB",
+      "description": "Peso Argentino (em Reais)"
+    },
+    ... continua ...
+  ]
+  ```
+
+  ---
 
 - **GET /api/asset/:asset**  
   Retorna dados da tabela de ativos com base no parâmetro `:asset`.
