@@ -1,0 +1,6 @@
+.env
+.code
+.vscode/ 
+.idea
+.dockerignore
+node_modules/
