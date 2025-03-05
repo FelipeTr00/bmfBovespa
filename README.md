@@ -150,9 +150,16 @@ Obs.: (O parâmetro `-d` executa os containers em segundo plano)
 ```
     psql -U SEU_USUARIO -d SEU_BANCO -f bmfbovespa/db/schema.sql
 ```
-
-
-4️⃣ Inicie o servidor:
+4️⃣ Variáveis de ambiente (.env):
+```
+  POSTGRES_DB=postgres
+  POSTGRES_USER=bmfbovespa
+  POSTGRES_PASSWORD=1234
+  POSTGRES_PORT=5434
+  EXTERNAL_PORT=5435
+  PORT=3000
+```
+5️⃣Inicie o servidor:
 ```
    npm run dev                
 ```
